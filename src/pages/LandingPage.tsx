@@ -1,9 +1,11 @@
-import { AppShell } from "@mantine/core";
+import { AppShell, Text } from "@mantine/core";
 
 function LandingPage() {
   return (
     <AppShell>
-      <AppShell.Main>Main</AppShell.Main>
+      <AppShell.Main>
+        <Text>Hello World</Text>
+      </AppShell.Main>
     </AppShell>
   );
 }
