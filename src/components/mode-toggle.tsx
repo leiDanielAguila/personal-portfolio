@@ -12,6 +12,11 @@ import { useTheme } from "@/components/theme-provider"
 export function ModeToggle() {
   const { setTheme } = useTheme()
 
+  /* 
+    Maybe we can transform this from dropdown to a single toggle button 
+    a dropdown is too much work in terms of UX
+  */
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

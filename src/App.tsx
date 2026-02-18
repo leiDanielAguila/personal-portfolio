@@ -1,12 +1,11 @@
 import "./App.css";
+import { HeaderCard } from "./components/header-card";
 
 function App() {
   return (
-    <div>
-      <div>
-        
-      </div>
-    </div>
+    <main className="min-h-screen grid place-items-center">
+      <HeaderCard />
+    </main>
   );
 }
 

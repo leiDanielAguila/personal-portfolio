@@ -4,7 +4,6 @@ Personal portfolio site showcasing projects and experience.
 
 ## Tech Stack
 
-- Vite for frontend
-- Tailwind CSS for styling
-- Vercel for hosting
+- Vite & Typescript for frontend
+- Tailwind CSS / SHADCN for styling
 - GitHub Actions for CI/CD
