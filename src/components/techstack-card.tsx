@@ -9,8 +9,8 @@ const categoryLabel: Record<TechStackCategory, string> = {
 
 export const TechStackCard = () => {
   return (
-    <div className="shadow-lg rounded-2xl border bg-background/90 w-full max-w-xl p-4 m-4">
-      <h1 className="text-2xl font-semibold mb-2">Tech Stack</h1>
+    <div className="shadow-lg rounded-2xl border bg-background/90 w-full p-4 sm:p-5">
+      <h1 className="text-xl sm:text-2xl font-semibold mb-2">Tech Stack</h1>
       <Separator />
       <div className="flex flex-col gap-4 mt-4">
         {(Object.keys(TechStack) as TechStackCategory[]).map((category) => (
@@ -31,4 +31,3 @@ export const TechStackCard = () => {
     </div>
   );
 };
-

@@ -22,7 +22,7 @@ export function ProfilePicture() {
   const src = isLight ? me : meDarkMode
 
   return (
-    <div className="w-full max-w-[12rem]">
+    <div className="w-14 sm:w-20 md:w-24 shrink-0">
       <AspectRatio ratio={1 / 1} className="bg-muted rounded-lg">
         <img src={src} alt="My profile picture" className="rounded-lg" />
       </AspectRatio>

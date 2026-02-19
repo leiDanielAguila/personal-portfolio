@@ -5,11 +5,11 @@ import { ProjectsCard } from "./components/projects-card";
 
 function App() {
   return (
-    <main className="min-h-screen">
-      <div className="w-full">
+    <main className="min-h-screen flex flex-col items-center px-4 py-6 gap-4">
+      <div className="w-full max-w-3xl">
         <HeaderCard />
       </div>
-      <div className="flex flex-auto justify-center ">
+      <div className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-4">
         <TechStackCard />
         <ProjectsCard />
       </div>
