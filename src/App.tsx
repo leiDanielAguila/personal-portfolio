@@ -2,6 +2,7 @@ import "./App.css";
 import { HeaderCard } from "./components/header-card";
 import { TechStackCard } from "./components/techstack-card";
 import { ProjectsCard } from "./components/projects-card";
+import { CertCard } from "./components/certifications-card";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </div>
       <div className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-4">
         <TechStackCard />
+        <CertCard />
+      </div>
+      <div className="w-full max-w-3xl ">
         <ProjectsCard />
       </div>
     </main>

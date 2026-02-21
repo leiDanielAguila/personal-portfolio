@@ -5,6 +5,7 @@ import { TechStack, type TechStackCategory } from "@/lib/techstack";
 const categoryLabel: Record<TechStackCategory, string> = {
   frontend: "Frontend",
   backend: "Backend",
+  devops: "DevOps"
 };
 
 export const TechStackCard = () => {
