@@ -10,7 +10,7 @@ export const CertCard = () => {
         Recent Certifications
       </h1>
       <Separator />
-      <div className="grid grid-cols-1 sm:grid-cols-1 gap-2 mt-3">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-3">
         {items.map((cert) => (
           <article
             key={cert.id}
