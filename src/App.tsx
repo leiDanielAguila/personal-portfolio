@@ -7,6 +7,7 @@ import { FooterCard } from "./components/footer";
 // import { AwardCard } from "./components/awards-card";
 import { IslandNavigation } from "./components/island-navigation";
 import { SocialsCard } from "./components/socials-card";
+import { Chatbot } from "./components/chatbot-ui";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
       </div> */}
       <div className="w-full max-w-3xl animate-fade-in [animation-delay:300ms]">
         <FooterCard />
+      </div>
+      <div className="fixed bottom-4 right-4">
+        <Chatbot />
       </div>
     </main>
   );
