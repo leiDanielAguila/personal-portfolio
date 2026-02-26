@@ -11,13 +11,13 @@ export const socials: Social[] = [
   {
     id: "github",
     label: "GitHub",
-    url: "https://github.com/placeholder",
+    url: "https://github.com/leiDanielAguila",
     color: "#181717",
   },
   {
     id: "linkedin",
     label: "LinkedIn",
-    url: "https://linkedin.com/in/placeholder",
+    url: "https://www.linkedin.com/in/christlei-daniel-aguila-bb2215318/",
     color: "#0A66C2",
   },
   {
