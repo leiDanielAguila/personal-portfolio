@@ -2,27 +2,37 @@ export type Project = {
   name: string;
   description: string;
   url: string;
+  img: string;
+  contrib: string
 };
 
 export const projects: Project[] = [
   {
-    name: "Project Alpha",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "NutriXtract",
+    description: "Our Thesis project regarding Nutritions, presented in AAIML Japan 2026",
     url: "https://github.com",
+    img: "../Group 1.png",
+    contrib: "Group Project"
   },
   {
-    name: "Project Beta",
-    description: "Ut enim ad minim veniam quis nostrud.",
-    url: "https://github.com",
+    name: "NutriXtract - Website",
+    description: "Web Version of our thesis project",
+    url: "https://nutrixtract.vercel.app",
+    img: "../nutrixtract-website.jpeg",
+    contrib: "Solo Project"
   },
   {
-    name: "Project Gamma",
-    description: "Duis aute irure dolor in reprehenderit.",
-    url: "https://github.com",
+    name: "CafeMo",
+    description: "Intelligent Systems course final project requirement, an AI-powered cafe kiosk",
+    url: "https://cafemo.vercel.app",
+    img: "../cafemo.jpeg",
+    contrib: "Group Project"
   },
   {
-    name: "Project Delta",
-    description: "Excepteur sint occaecat cupidatat non proident.",
+    name: "Recruiter-First",
+    description: "User-centric tool aiding users in Job Applications, tracker and CL generator all in one.",
     url: "https://github.com",
+    img: "../recruiter-first.png",
+    contrib: "Solo Project"
   },
 ];
