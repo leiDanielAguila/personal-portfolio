@@ -1,8 +1,16 @@
 import { Download } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { type Social, socials, type SocialId } from "@/lib/socials";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-const iconMap: Record<SocialId, React.ComponentType<{ size?: number; color?: string }>> = {
+const iconMap: Record<
+  SocialId,
+  React.ComponentType<{ size?: number; color?: string }>
+> = {
   github: FaGithub,
   linkedin: FaLinkedin,
   instagram: FaInstagram,
@@ -42,23 +50,38 @@ export const SocialsCard = () => {
     <section className="w-full rounded-2xl border bg-background/90 p-4 sm:p-5 shadow-lg">
       <div className="flex flex-row items-center justify-between gap-3 flex-wrap">
         <div className="flex flex-row gap-3 flex-wrap">
-          <h2 className="text-sm font-medium text-muted-foreground self-center">Find me on</h2>
+          <h2 className="text-sm font-medium text-muted-foreground self-center">
+            Find me on
+          </h2>
           {socials.map((social) => (
-            <SocialLink key={social.id} social={social} />
+            <Tooltip>
+              <TooltipTrigger>
+                <SocialLink key={social.id} social={social} />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{social.label}</p>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
-        <a
-          href="/placeholder-resume.pdf"
-          download
-          aria-label="Download resume"
-          className="group flex items-center gap-2 rounded-xl border bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
-        >
-          <Download
-            size={16}
-            className="transition-transform duration-300 ease-out group-hover:translate-y-0.5"
-          />
-          Download CV
-        </a>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <a
+              download
+              aria-label="Download resume"
+              className="group flex items-center gap-2 rounded-xl border bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
+            >
+              <Download
+                size={16}
+                className="transition-transform duration-300 ease-out group-hover:translate-y-0.5"
+              />
+              Download CV
+            </a>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>This feature is currently unavailable</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
     </section>
   );
