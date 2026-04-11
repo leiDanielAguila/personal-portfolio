@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import me from "@/assets/me.png";
-import meDarkMode from "@/assets/dark-mode-me.png";
+import me from "@/assets/me.webp";
+import meDarkMode from "@/assets/dark-mode-me.webp";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useTheme } from "@/components/theme-provider";
 
 const getSystemIsDark = () =>
@@ -10,6 +11,7 @@ const getSystemIsDark = () =>
 export function ProfilePicture() {
   const { theme } = useTheme();
   const [systemIsDark, setSystemIsDark] = useState(getSystemIsDark);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
     if (theme !== "system") return;
@@ -22,10 +24,28 @@ export function ProfilePicture() {
   const isLight = theme === "light" || (theme === "system" && !systemIsDark);
   const src = isLight ? me : meDarkMode;
 
+  useEffect(() => {
+    setIsImageLoaded(false);
+  }, [src]);
+
   return (
     <div className="w-24 sm:w-32 md:w-40 shrink-0">
-      <AspectRatio ratio={1 / 1} className="bg-muted rounded-lg">
-        <img src={src} alt="My profile picture" className="rounded-lg" />
+      <AspectRatio
+        ratio={1 / 1}
+        className="relative bg-muted rounded-lg overflow-hidden"
+      >
+        {!isImageLoaded ? (
+          <Skeleton className="absolute inset-0 h-full w-full rounded-lg" />
+        ) : null}
+        <img
+          src={src}
+          alt="My profile picture"
+          onLoad={() => setIsImageLoaded(true)}
+          onError={() => setIsImageLoaded(true)}
+          className={`rounded-lg h-full w-full object-cover transition-opacity duration-300 ${
+            isImageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
       </AspectRatio>
     </div>
   );
