@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { projects } from "@/lib/projects";
 import { AspectRatio } from "./ui/aspect-ratio";
 import { Separator } from "./ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Card,
   CardAction,
@@ -11,6 +13,12 @@ import {
 } from "@/components/ui/card";
 
 export const ProjectsCard = () => {
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
+
+  const handleImageLoaded = (projectName: string) => {
+    setLoadedImages((previous) => ({ ...previous, [projectName]: true }));
+  };
+
   return (
     <section className="shadow-lg rounded-2xl border bg-background/90 w-full p-4 sm:p-5">
       <div>
@@ -29,12 +37,20 @@ export const ProjectsCard = () => {
             <Card className="relative mx-auto w-full max-w-sm pt-0 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl">
               <AspectRatio
                 ratio={16 / 9}
-                className="m-4 overflow-hidden rounded-xl border border-black"
+                className="relative m-4 overflow-hidden rounded-xl border border-black"
               >
+                {!loadedImages[project.name] ? (
+                  <Skeleton className="absolute inset-0 h-full w-full rounded-xl" />
+                ) : null}
                 <img
                   src={project.img}
+                  loading="lazy"
                   alt={project.name}
-                  className="h-full w-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  onLoad={() => handleImageLoaded(project.name)}
+                  onError={() => handleImageLoaded(project.name)}
+                  className={`h-full w-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
+                    loadedImages[project.name] ? "opacity-100" : "opacity-0"
+                  }`}
                 />
               </AspectRatio>
               <CardHeader>
