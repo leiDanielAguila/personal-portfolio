@@ -2,11 +2,9 @@ import { useState } from "react";
 import { projects } from "@/lib/projects";
 import { AspectRatio } from "./ui/aspect-ratio";
 import { Separator } from "./ui/separator";
-import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Card,
-  CardAction,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -53,15 +51,7 @@ export const ProjectsCard = () => {
                   }`}
                 />
               </AspectRatio>
-              <CardHeader>
-                <CardAction>
-                  <Badge
-                    variant="secondary"
-                    className="transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
-                  >
-                    {project.contrib}
-                  </Badge>
-                </CardAction>
+              <CardHeader>            
                 <CardTitle className="transition-colors duration-300 group-hover:text-primary">
                   {project.name}
                 </CardTitle>

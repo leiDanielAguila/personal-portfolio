@@ -25,7 +25,31 @@ export function ProfilePicture() {
   const src = isLight ? me : meDarkMode;
 
   useEffect(() => {
+    let isMounted = true;
+    const preloadedImage = new Image();
+
     setIsImageLoaded(false);
+    preloadedImage.src = src;
+
+    if (preloadedImage.complete) {
+      setIsImageLoaded(true);
+      return;
+    }
+
+    const handleFinishedLoading = () => {
+      if (isMounted) {
+        setIsImageLoaded(true);
+      }
+    };
+
+    preloadedImage.onload = handleFinishedLoading;
+    preloadedImage.onerror = handleFinishedLoading;
+
+    return () => {
+      isMounted = false;
+      preloadedImage.onload = null;
+      preloadedImage.onerror = null;
+    };
   }, [src]);
 
   return (
@@ -40,8 +64,6 @@ export function ProfilePicture() {
         <img
           src={src}
           alt="My profile picture"
-          onLoad={() => setIsImageLoaded(true)}
-          onError={() => setIsImageLoaded(true)}
           className={`rounded-lg h-full w-full object-cover transition-opacity duration-300 ${
             isImageLoaded ? "opacity-100" : "opacity-0"
           }`}

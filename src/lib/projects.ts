@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     name: "NutriXtract",
     description: "Our Thesis project regarding Nutritions, presented in AAIML Japan 2026",
-    url: "https://github.com",
+    url: "https://github.com/SeanArnisto/nutrivision-frontend-main",
     img: "../Group 1.webp",
     contrib: "Group Project"
   },

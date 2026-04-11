@@ -1,11 +1,16 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Briefcase, Folder, House } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const islandItems = [
   { id: "home", label: "Home", Icon: House, URL: "/" },
   { id: "projects", label: "Projects", Icon: Folder, URL: "/projects" },
   {
-    id: "awards",
+    id: "work",
     label: "Awards and Experience",
     Icon: Briefcase,
     URL: "/info",
@@ -48,19 +53,26 @@ export const IslandNavigation = () => {
         style={{ transform: `translateY(${activeIslandIndex * 3}rem)` }}
       />
       {islandItems.map(({ id, label, Icon }) => (
-        <button
-          key={id}
-          type="button"
-          aria-label={label}
-          onClick={() => handleClick(id)}
-          className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
-            activeIslandItem === id
-              ? "text-primary"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          <Icon size={18} />
-        </button>
+        <Tooltip key={'right'}>
+          <TooltipTrigger asChild>
+          <button
+            key={id}
+            type="button"
+            aria-label={label}
+            onClick={() => handleClick(id)}
+            className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
+              activeIslandItem === id
+                ? "text-primary"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <Icon size={18} />
+          </button>
+          </TooltipTrigger>
+          <TooltipContent side="right"> 
+            <p className="text-bold">{id}</p>
+          </TooltipContent>
+        </Tooltip>
       ))}
     </nav>
   );
