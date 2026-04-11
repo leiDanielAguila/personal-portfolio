@@ -1,29 +1,68 @@
 import { projects } from "@/lib/projects";
+import { AspectRatio } from "./ui/aspect-ratio";
 import { Separator } from "./ui/separator";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export const ProjectsCard = () => {
   return (
     <section className="shadow-lg rounded-2xl border bg-background/90 w-full p-4 sm:p-5">
       <div>
         <h1 className="text-xl sm:text-2xl font-semibold mb-2">
-          Recent Projects
+          Personal & Group Projects
         </h1>
         <Separator />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-3 ">
-        {projects.map((project) => (
-          <a
+      <div className="mt-3 grid grid-flow-col grid-rows-2 gap-4">
+        {projects.map((project, index) => (
+          <div
             key={project.name}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border rounded-lg px-3 py-2 flex flex-col gap-0.5 bg-muted/40 w-full hover:bg-muted transition-colors cursor-pointer transition-transform duration-300 ease-out hover:-translate-y-2"
+            className="group flex flex-row gap-3 animate-fade-in"
+            style={{ animationDelay: `${index * 120}ms` }}
           >
-            <span className="text-sm font-medium truncate">{project.name}</span>
-            <span className="text-xs text-muted-foreground">
-              {project.description}
-            </span>
-          </a>
+            <Card className="relative mx-auto w-full max-w-sm pt-0 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl">
+              <AspectRatio
+                ratio={16 / 9}
+                className="m-4 overflow-hidden rounded-xl border border-black"
+              >
+                <img
+                  src={project.img}
+                  alt={project.name}
+                  className="h-full w-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </AspectRatio>
+              <CardHeader>
+                <CardAction>
+                  <Badge
+                    variant="secondary"
+                    className="transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
+                  >
+                    {project.contrib}
+                  </Badge>
+                </CardAction>
+                <CardTitle className="transition-colors duration-300 group-hover:text-primary">
+                  {project.name}
+                </CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+                <CardDescription>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-4 transition-colors duration-300 hover:text-primary"
+                  >
+                    {project.url}
+                  </a>
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
         ))}
       </div>
     </section>
