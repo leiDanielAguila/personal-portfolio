@@ -25,3 +25,6 @@ dist-ssr
 
 # Copilot repository instructions
 .github
+
+# external API keys
+.env

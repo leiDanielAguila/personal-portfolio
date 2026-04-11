@@ -6,7 +6,7 @@ export const CertCard = () => {
 
   return (
     <section className="shadow-lg rounded-2xl border bg-background/90 w-full p-4 sm:p-5">
-      <h1 className="text-xl sm:text-2xl font-semibold mb-2">
+      <h1 className="text-l sm:text-2xl font-semibold mb-2">
         Recent Certifications
       </h1>
       <Separator />

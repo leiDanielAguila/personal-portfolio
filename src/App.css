@@ -1,0 +1,42 @@
+body {
+  --grid-bg: #ffffff;
+  --grid-line: rgba(100, 116, 139, 0.16);
+  --grid-glow: rgba(56, 189, 248, 0.16);
+  min-height: 100vh;
+  background-color: var(--grid-bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, var(--grid-glow), transparent 55%);
+  background-size:
+    48px 48px,
+    48px 48px,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    center;
+  animation: move-grid 5s linear infinite;
+}
+
+.dark body {
+  --grid-bg: #020617;
+  --grid-line: rgba(148, 163, 184, 0.15);
+  --grid-glow: rgba(56, 189, 248, 0.12);
+}
+
+@keyframes move-grid {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      center;
+  }
+
+  to {
+    background-position:
+      48px 48px,
+      48px 48px,
+      center;
+  }
+}

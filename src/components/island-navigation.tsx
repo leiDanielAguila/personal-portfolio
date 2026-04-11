@@ -1,17 +1,34 @@
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Briefcase, Folder, House } from "lucide-react";
 
 const islandItems = [
-  { id: "home", label: "Home", Icon: House },
-  { id: "projects", label: "Projects", Icon: Folder },
-  { id: "awards", label: "Awards and Experience", Icon: Briefcase },
+  { id: "home", label: "Home", Icon: House, URL: "/" },
+  { id: "projects", label: "Projects", Icon: Folder, URL: "/projects" },
+  {
+    id: "awards",
+    label: "Awards and Experience",
+    Icon: Briefcase,
+    URL: "/info",
+  },
 ] as const;
 
 type IslandItemId = (typeof islandItems)[number]["id"];
 
 export const IslandNavigation = () => {
-  const [activeIslandItem, setActiveIslandItem] = useState<IslandItemId>("home");
-  const activeIslandIndex = islandItems.findIndex((item) => item.id === activeIslandItem);
+  const nav = useNavigate();
+  const { pathname } = useLocation();
+  const activeIslandItem =
+    islandItems.find((item) => item.URL === pathname)?.id ?? "home";
+  const activeIslandIndex = islandItems.findIndex(
+    (item) => item.id === activeIslandItem,
+  );
+
+  const handleClick = (id: IslandItemId) => {
+    const selectedItem = islandItems.find((item) => item.id === id);
+    if (selectedItem) {
+      nav(selectedItem.URL);
+    }
+  };
 
   return (
     <nav
@@ -35,9 +52,11 @@ export const IslandNavigation = () => {
           key={id}
           type="button"
           aria-label={label}
-          onClick={() => setActiveIslandItem(id)}
+          onClick={() => handleClick(id)}
           className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
-            activeIslandItem === id ? "text-primary" : "text-muted-foreground hover:text-foreground"
+            activeIslandItem === id
+              ? "text-primary"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           <Icon size={18} />
