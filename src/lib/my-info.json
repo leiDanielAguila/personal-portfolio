@@ -1,0 +1,117 @@
+{
+  "personal_info": {
+    "name": "Christlei Daniel Aguila",
+    "title": ["Software Engineer", "Full-Stack Developer", "AI/ML Enthusiast"],
+    "location": "Metro Manila, PH",
+    "phone": "+63 927 627 7495",
+    "email": "aguila.christleidaniel@gmail.com",
+    "linkedin": "linkedin.com/in/christlei-daniel-aguila",
+    "github": "github.com/leiDanielAguila",
+    "portfolio": "christleiaguila.me"
+  },
+  "summary": "Results-driven Computer Science graduate with hands-on experience in full-stack development, AI/ML integration, and DevOps. Proven track record as a Hackathon Champion (1st Place + Best UI + Best Proposal) and internationally recognized researcher — thesis paper accepted for presentation at Chuo University, Tokyo. Adept at delivering end-to-end solutions from mobile apps and web platforms to cloud infrastructure, with a keen focus on user-centric design and scalable architecture.",
+  "awards": [
+    {
+      "title": "Champion + Best in UI + Best in Proposal",
+      "event": "Codesprint Hackathon",
+      "date": "March 2025"
+    },
+    {
+      "title": "Internationally Accepted Research",
+      "event": "AAIML International Paper Conference, Chuo University, Tokyo, Japan",
+      "date": "May 2026"
+    },
+    {
+      "title": "Top 10 NCR Qualifier",
+      "event": "Philippine Startup Challenge X (PSC X), Plantego",
+      "date": "October 2025"
+    }
+  ],
+  "work_experience": [
+    {
+      "role": "Software Engineer Intern",
+      "company": "Associated Labors Union",
+      "start_date": "May 2025",
+      "end_date": "June 2025",
+      "responsibilities": [
+        "Built a Payroll Emailing System integrated into an existing enterprise application using VB.Net, reducing manual payslip distribution effort.",
+        "Designed an intuitive payslip email UI informed by internal employee feedback, improving end-user satisfaction.",
+        "Aggregated and normalized cross-departmental employee data to populate the payroll database, ensuring data accuracy across teams."
+      ]
+    },
+    {
+      "role": "Customer-Facing Graphic Designer",
+      "company": "AnimatePH",
+      "start_date": "June 2020",
+      "end_date": "June 2023",
+      "responsibilities": [
+        "Delivered 50+ graphic design projects using Adobe After Effects and Photoshop, meeting client briefs consistently on time.",
+        "Served as the primary client liaison, translating technical requirements and creative direction into polished visual output."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "BS Computer Science",
+      "institution": "University of the East",
+      "start_date": "June 2022",
+      "end_date": "April 2026",
+      "thesis": {
+        "title": "NutriXtract — Intelligent Nutrition Label and Fruit Image Analysis using Computer Vision, OCR, and NLP",
+        "note": "Accepted for international presentation at AAIML Conference, Chuo University, Tokyo"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "NutriXtract",
+      "tech_stack": ["React Native", "FastAPI", "YOLOv8", "Google OCR", "HuggingFace", "Zustand", "Tanstack Query"],
+      "highlights": [
+        "Led full-stack development of an AI-powered nutrition mobile app tracking Calories, Protein, Sodium, and Carbs via real-time image and label analysis.",
+        "Independently architected the end-to-end system from mobile frontend to Python backend and database, managing all dependency and version control workflows.",
+        "Thesis project accepted at the AAIML International Paper Conference at Chuo University, Tokyo."
+      ]
+    },
+    {
+      "name": "Recruiter First",
+      "tech_stack": ["React", "FastAPI", "RAG", "Terraform", "Docker", "GitHub Actions", "AWS"],
+      "highlights": [
+        "Built an AI-powered job application platform that compares resumes with job descriptions to generate actionable insights, cover letters, and one-click form autofills.",
+        "Implemented a simplified RAG pipeline for context-aware AI features, with prompt injection safeguards and security hardening.",
+        "Applied a full DevOps pipeline with Terraform, Docker, and GitHub Actions on AWS."
+      ]
+    },
+    {
+      "name": "CafeMo",
+      "tech_stack": ["React", "Node.js", "Supabase", "OpenAI/Gemini API", "Weather API"],
+      "highlights": [
+        "Designed and delivered an AI-powered kiosk simulator featuring real-time weather data and sentiment analysis for personalized drink recommendations.",
+        "Led team coordination across technical and non-technical tasks; handled serverless deployment, project configuration, and repository management."
+      ]
+    },
+    {
+      "name": "NutriXtract Website",
+      "tech_stack": ["React", "Vite", "MantineUI"],
+      "highlights": [
+        "Built a proof-of-concept client-facing web platform as a free alternative to paid app store distribution, streamlining the data-gathering phase for thesis research."
+      ]
+    }
+  ],
+  "technical_skills": {
+    "frontend": ["React", "React Native", "Next.js", "Vue.js", "Svelte", "TypeScript", "TailwindCSS", "MantineUI", "ShadCN", "Bootstrap", "Jetpack Compose", "Expo Go"],
+    "backend": ["Python", "FastAPI", "Node.js", "Express.js", "Java", "Jakarta EE", "PHP", "GraphQL", "REST", "JWT", "OAuth", "SQLAlchemy", "Pydantic", "Supabase", "MySQL", "PostgreSQL", "Zustand", "React Query"],
+    "devops": ["Docker", "Kubernetes", "Terraform", "GitHub Actions", "AWS", "GCP", "DigitalOcean", "Vercel", "Cloudflare", "Nginx", "Bash", "PowerShell", "Zsh"],
+    "ai_ml": ["Gemini API", "OpenAI", "YOLOv8", "Roboflow", "HuggingFace", "LangChain", "RAG", "Pinecone", "ChromaDB", "TensorFlow", "NumPy", "Pandas", "Google Colab"],
+    "tools": ["Git", "GitHub", "Docker Hub", "Postman", "Splunk"]
+  },
+  "certifications": [
+    {
+      "name": "Python Specialist",
+      "issuer": "Certiport"
+    },
+    {
+      "name": "AWS Cloud Practitioner",
+      "issuer": "AWS Skillbuilder"
+    }
+  ]
+}
