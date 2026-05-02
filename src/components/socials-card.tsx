@@ -49,10 +49,10 @@ export const SocialsCard = () => {
   return (
     <section className="w-full rounded-2xl border bg-background/90 p-4 sm:p-5 shadow-lg">
       <div className="flex flex-row items-center justify-between gap-3 flex-wrap">
+        <h2 className="text-sm font-medium text-muted-foreground self-center">
+          Find me on
+        </h2>
         <div className="flex flex-row gap-3 flex-wrap">
-          <h2 className="text-sm font-medium text-muted-foreground self-center">
-            Find me on
-          </h2>
           {socials.map((social) => (
             <Tooltip>
               <TooltipTrigger>
@@ -68,14 +68,11 @@ export const SocialsCard = () => {
           <TooltipTrigger asChild>
             <a
               download
+              href="https://github.com/leiDanielAguila/personal-portfolio/releases/download/0.0.1/ChristleiAguila_Resume.pdf"
               aria-label="Download resume"
               className="group flex items-center gap-2 rounded-xl border bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
             >
-              <Download
-                size={16}
-                className="transition-transform duration-300 ease-out group-hover:translate-y-0.5"
-              />
-              Download CV
+              Download Resume
             </a>
           </TooltipTrigger>
           <TooltipContent>

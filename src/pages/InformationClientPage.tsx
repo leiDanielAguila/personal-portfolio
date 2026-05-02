@@ -159,7 +159,7 @@ function InformationClientPage() {
             <CardHeader>
               <CardTitle className="text-xl">Contact Me</CardTitle>
               <CardDescription>
-                Send me a message. Submission logic can be connected later.
+                Send me a message. 
               </CardDescription>
             </CardHeader>
             <CardContent>
