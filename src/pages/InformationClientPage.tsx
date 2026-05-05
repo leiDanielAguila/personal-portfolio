@@ -159,7 +159,7 @@ function InformationClientPage() {
             <CardHeader>
               <CardTitle className="text-xl">Contact Me</CardTitle>
               <CardDescription>
-                Send me a message. 
+                Send me a message. Interested in working together.
               </CardDescription>
             </CardHeader>
             <CardContent>
