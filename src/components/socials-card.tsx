@@ -1,4 +1,3 @@
-import { Download } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { type Social, socials, type SocialId } from "@/lib/socials";
 import {
