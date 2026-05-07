@@ -1,9 +1,35 @@
 import { useState } from "react";
 import { BotMessageSquare, X, Send } from "lucide-react";
 import { Button } from "./ui/button";
+import { type Message } from "@/types/chatbot";
 
 export const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [input, onInputChange] = useState("");
+
+  const [messages, onMessagesChange] = useState<Message[]>([
+    {
+      role: "assistant",
+      content:
+        "   Hi! I'm Lei's AI assistant. Ask me anything about his work or experience. 👋",
+    },
+  ]);
+
+  const handleSubmit = () => {
+    const trimmed = input.trim();
+    if (!trimmed) return;
+
+    onMessagesChange((prev) => [
+      ...prev,
+      {
+        role: "user",
+        content: trimmed,
+      },
+    ]);
+    // wire backend response 
+    
+    onInputChange("");
+  };
 
   return (
     <aside className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
@@ -39,15 +65,27 @@ export const Chatbot = () => {
         {/* Messages area */}
         <div className="flex-1 h-72 overflow-y-auto px-4 py-3 flex flex-col gap-3">
           {/* Placeholder welcome message */}
-          <div className="flex gap-2 items-start">
-            <div className="rounded-full bg-primary/10 p-1.5 mt-0.5 shrink-0">
-              <BotMessageSquare size={14} className="text-primary" />
+          {messages.map((message, index) => (
+            <div
+              className={`flex flex-col gap-2 ${message.role === "user" ? "items-end" : "items-start"}`}
+              key={index}
+            >
+              {message.role === "assistant" && (
+                <div className="rounded-full bg-primary/10 p-1.5 mt-0.5 shrink-0">
+                  <BotMessageSquare size={14} className="text-primary" />
+                </div>
+              )}
+              <p
+                className={`text-sm rounded-2xl px-3 py-2 max-w-[80%] ${
+                  message.role === "user"
+                    ? "bg-primary text-primary-foreground rounded-tr-sm"
+                    : "bg-muted rounded-tl-sm"
+                }`}
+              >
+                {message.content}
+              </p>
             </div>
-            <p className="text-sm bg-muted rounded-2xl rounded-tl-sm px-3 py-2 max-w-[80%]">
-              Hi! I'm Lei's AI assistant. Ask me anything about his work or
-              experience. 👋
-            </p>
-          </div>
+          ))}
         </div>
 
         {/* Input area */}
@@ -56,12 +94,14 @@ export const Chatbot = () => {
             type="text"
             placeholder="Ask something..."
             className="flex-1 text-sm bg-muted rounded-full px-4 py-2 outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-foreground/50"
-            // disabled
+            value={input}
+            onChange={(e) => onInputChange(e.target.value)}
           />
           <Button
             size="icon"
             className="rounded-full h-8 w-8 shrink-0"
-            disabled
+            onClick={handleSubmit}
+            disabled={!input.trim()}
           >
             <Send size={14} />
           </Button>
