@@ -67,7 +67,7 @@ export const SocialsCard = () => {
           <TooltipTrigger asChild>
             <a
               download
-              href="https://github.com/leiDanielAguila/personal-portfolio/releases/download/0.0.1/ChristleiAguila_Resume.pdf"
+              href="https://github.com/leiDanielAguila/personal-portfolio/releases/download/0.0.1/CHRISTLEI.DANIEL.AGUILA.-.RESUME.pdf"
               aria-label="Download resume"
               className="group flex items-center gap-2 rounded-xl border bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
             >
